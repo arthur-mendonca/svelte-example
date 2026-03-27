@@ -1,33 +1,35 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
-	import PageSwitcher from '$lib/components/PageSwitcher.svelte';
+	import { page } from "$app/state";
+	import "./layout.css";
+	import favicon from "$lib/assets/favicon.svg";
+	import PageSwitcher from "$lib/components/PageSwitcher.svelte";
 
-	const navButtons: Array<{ label: string; href: '/' | '/contador' | '/sobre' | '/todo' }> = [
-		{ label: 'Inicio', href: '/' },
-		{ label: 'Contador', href: '/contador' },
-		{ label: 'Sobre', href: '/sobre' },
-		{ label: 'To-do', href: '/todo' }
+	const navButtons: Array<{
+		label: string;
+		href: "/" | "/contador" | "/sobre" | "/todo" | "/posts";
+	}> = [
+		{ label: "Inicio", href: "/" },
+		{ label: "Contador", href: "/contador" },
+		{ label: "Sobre", href: "/sobre" },
+		{ label: "To-do", href: "/todo" },
+		{ label: "Posts", href: "/posts" },
 	];
 
 	function getPageTitle(pathname: string) {
-		if (pathname === '/') {
-			return 'Pagina Inicial';
-		} else if (pathname === '/todo'){
-			return 'Lista de Tarefas';
+		if (pathname === "/") {
+			return "Pagina Inicial";
+		} else if (pathname === "/todo") {
+			return "Lista de Tarefas";
 		}
 
-		
-
-		const lastSegment = pathname.split('/').filter(Boolean).at(-1) ?? '';
-		const normalizedSegment = decodeURIComponent(lastSegment).replace(/[-_]+/g, ' ');
+		const lastSegment = pathname.split("/").filter(Boolean).at(-1) ?? "";
+		const normalizedSegment = decodeURIComponent(lastSegment).replace(/[-_]+/g, " ");
 
 		return normalizedSegment
-			.split(' ')
+			.split(" ")
 			.filter(Boolean)
 			.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-			.join(' ');
+			.join(" ");
 	}
 
 	const pageTitle = $derived(getPageTitle(page.url.pathname));

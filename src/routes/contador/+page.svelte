@@ -1,9 +1,15 @@
 <script lang="ts">
-	let count = $state(0);
-	let doubled = $derived(count * 2);
+	import {
+		createInitialCounterState,
+		getDoubledCount,
+		incrementCounter
+	} from '$lib/logic/contador/contador.logic';
+
+	let counterState = $state(createInitialCounterState());
+	let doubled = $derived(getDoubledCount(counterState.count));
 
 	function increment() {
-		count += 1;
+		counterState = incrementCounter(counterState);
 	}
 </script>
 
@@ -12,7 +18,7 @@
 		onclick={increment}
 		class="cursor-pointer rounded bg-blue-500 px-4 py-2 text-white transition hover:bg-blue-700"
 	>
-		Cliques: {count}
+		Cliques: {counterState.count}
 	</button>
 
 	<p class="text-lg">O dobro e: {doubled}</p>

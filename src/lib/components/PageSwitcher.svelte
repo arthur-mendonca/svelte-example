@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
+	import { resolve } from "$app/paths";
 
-	type AppRoute = '/' | '/contador' | '/sobre' | '/todo';
+	type AppRoute = "/" | "/contador" | "/sobre" | "/todo" | "/posts";
 
 	type NavButton = {
 		label: string;
@@ -9,7 +9,7 @@
 	};
 
 	let {
-		buttons = []
+		buttons = [],
 	}: {
 		buttons?: NavButton[];
 	} = $props();
@@ -17,13 +17,13 @@
 
 <nav class="flex flex-wrap gap-3" aria-label="Navegacao de paginas">
 	{#each buttons as button (button.href)}
-	<div>
-		<a
-			href={resolve(button.href)}
-			class="rounded bg-slate-900 px-4 py-2 text-white transition hover:bg-slate-700"
-		>
-			{button.label}
-		</a>
-	</div>
+		<div>
+			<a
+				href={resolve(button.href)}
+				class="rounded bg-slate-900 px-4 py-2 text-white transition hover:bg-slate-700"
+			>
+				{button.label}
+			</a>
+		</div>
 	{/each}
 </nav>

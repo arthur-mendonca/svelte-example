@@ -5,7 +5,7 @@
 		removeTodo as removeTodoFromList,
 		toggleTodo,
 		type Todo,
-	} from "$lib/todo/todo.logic";
+	} from "$lib/logic/todo/todo.logic";
 
 	let todos: Todo[] = $state(initialTodos);
 	let newTodoText = $state("");
