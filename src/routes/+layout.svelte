@@ -13,6 +13,7 @@
 		{ label: "Sobre", href: "/sobre" },
 		{ label: "To-do", href: "/todo" },
 		{ label: "Posts", href: "/posts" },
+		{ label: "Effect", href: "/effect" },
 	];
 
 	function getPageTitle(pathname: string) {
