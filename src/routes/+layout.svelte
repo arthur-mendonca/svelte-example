@@ -14,6 +14,7 @@
 		{ label: "To-do", href: "/todo" },
 		{ label: "Posts", href: "/posts" },
 		{ label: "Effect", href: "/effect" },
+		{ label: "Gráficos", href: "/charts" },
 	];
 
 	function getPageTitle(pathname: string) {

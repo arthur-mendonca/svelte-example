@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from "$app/paths";
 
-	type AppRoute = "/" | "/contador" | "/sobre" | "/todo" | "/posts" | "/effect";
+	type AppRoute = "/" | "/contador" | "/sobre" | "/todo" | "/posts" | "/effect" | "/charts";
 
 	type NavButton = {
 		label: string;
